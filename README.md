@@ -6,18 +6,16 @@ There is likely more than one set of 5 words that cover nearly all 26 letters of
 
 <details>
   <summary>Spoiler warning</summary>
-  
-  Spoiler text. Note that it's important to have a space after the summary tag. You should be able to write any markdown you want inside the `<details>` tag... just make sure you close `<details>` afterward.
+    abets
+    flick
+    grown
+    jumpy
+    vozhd (not even english, but apparently it's a scrabble word  ¯\_(ツ)_/¯ )
+
+    Q and X will be your only letters that haven't been ruled in or out, so your final guess should be fairly straightforward. 
+
 </details>
 
-abets
-flick
-grown
-jumpy
-vozhd (not even english, but apparently it's a scrabble word)
-
-Q and X will be your only letters that haven't been ruled in or out, so your final guess should be fairly straightforward. 
-
-###Usage
+Usage
 
 uhh, working on improving this bit
