@@ -6,8 +6,6 @@ This script can be used to find a Widdle, a set of five words that cover nearly 
 
 There is likely more than one set of 5 words that cover nearly all 26 letters of the alphabet. Possibly even a holy grail that gets all 25 with no repeats. I wouldn't know because I exceeded maximum call stack size before getting there. Below are a few sets, hidden behind a spoiler wall. Don't blame me if this ruins Wordle for you.
 
-This recursive algorithm won't capture all possible Widdles, and if you want to search form more there's a manual search aspect. I don't think it would be too hard to expand this algorithm to do a far more efficient search, but I'm not going to do that anytime soon. 
-
 <details>
   <summary>Spoiler warning</summary>
 
@@ -29,6 +27,8 @@ Tolerance 2, leaving Z and X undetermined:
 </details>
 &nbsp  
 
+This recursive algorithm won't capture all possible Widdles, and if you want to search form more there's a manual search aspect. I don't think it would be too hard to expand this algorithm to do a far more efficient search, but I'm not going to do that anytime soon. 
+
 # Usage
 
 If you just want some cheat words then use the ones above. If you want to mess around with the algorithm and find more Widdles, be my guest! You'll need Node installed. 
@@ -44,7 +44,7 @@ Running the script will get the first Widdle shown above. You'll have to manuall
 
     $ yarn install 
 
-Best of luck
+Best of luck.
 
 
 
