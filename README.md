@@ -27,7 +27,8 @@ Tolerance 2, leaving Z and X undetermined:
 </details>
 &nbsp  
 
-This recursive algorithm won't capture all possible Widdles, and if you want to search form more there's a manual search aspect. I don't think it would be too hard to expand this algorithm to do a far more efficient search, but I'm not going to do that anytime soon. 
+This recursive algorithm won't capture all possible Widdles, and if you want to find more there's a manual search aspect. I don't think it would be too hard to expand this algorithm t
+o do a far more efficient search, but I'm not going to do that right now. 
 
 # Usage
 
