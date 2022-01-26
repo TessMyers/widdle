@@ -1,10 +1,12 @@
 const words = require('./filteredWords.js');
 
 /* A Widdle is a set of 5 words that cover nearly all letters of the alphabet with minimal repeats. 
-Using these five words in a Wordle will rule out most letters, making the final guess easy. */
+Using these five words in a Wordle will rule out most letters, making the final guess easy. 
+
+This is a fairly basic recursive algorithm and could absolutely use some work. Feel free to fiddle around.*/
 
 const tolerance = 2; // Number between 0 - 5. Tolerance allows for the final word to have this number of repeated letters. If you get a maximum stack error then raise this number.
-const startIndex = 6; // Number between 0 - 8013. Change this to get a different starting word. Higher numbers will eventually produce worse results because I didn't bother to 
+const startIndex = 0; // Number between 0 - 8013. Change this to get a different starting word. Higher numbers will eventually produce worse results because I didn't bother to 
 const widdleLength = 5; // Number between 1 - 5. Not to be over 5, something might explode. 
 
 const widdle = [];
@@ -48,11 +50,6 @@ function recurse(widdle, index) {
             idx = widdle[widdle.length-1][1]+1;
             widdle.pop();
             usedLetters.splice(usedLetters.length-5, 5);
-
-            if (widdle.length === 0) {
-                // This is intended to restart the widdle search using a new starting word, but in reality it's too much recursion :(
-                addToWiddle(words[counter], counter);
-            }
         } else {
             idx = words.indexOf(candidate);
             addToWiddle(candidate, idx);
