@@ -1,25 +1,14 @@
-const { indexOf, find } = require('./filteredWords.js');
-
 const words = require('./filteredWords.js');
 
-/* Given a set of all acceptable 5 letter English words, pick the first word. 
-Find a second word that does not contain any of the letters in the first word
-Find a third word that does not contain any letters in the first and second words\
-If you can’t find a 4th, delete entry three and pick another 3rd entry
+/* A Widdle is a set of 5 words that cover nearly all letters of the alphabet with minimal repeats. 
+Using these five words in a Wordle will rule out most letters, making the final guess easy. */
 
-
-How to handle repeats? I don’t want to pick the same 4 word combo
-Keep a numbered object, each entry has an array of rejected words for that level
-
-Recursively:
-If counter = 5, return
-If counter does not equal 5, 
-Search for a word with no repeated letters. If cannot find, delete previous level and pick the next one. */
+const tolerance = 2; // Number between 0 - 5. Tolerance allows for the final word to have this number of repeated letters. If you get a maximum stack error then raise this number.
+const startIndex = 6; // Number between 0 - 8013. Change this to get a different starting word. Higher numbers will eventually produce worse results because I didn't bother to 
+const widdleLength = 5; // Number between 1 - 5. Not to be over 5, something might explode. 
 
 const widdle = [];
 const usedLetters = [];
-let counter = 0;
-const tolerance = 2;
 
 function addToWiddle(word, idx) {
     widdle.push([word, idx])
@@ -35,13 +24,12 @@ function findNextWord(index){
 
 function recurse(widdle, index) {
 
-    if (widdle.length === 5 ) {
+    if (widdle.length === widdleLength ) {
         return;
     } else {
-        //find the eligible next word, starting at last entry's idx
         let candidate;
-        if (widdle.length === 4) {
-            // special case allowing tolerance for the final word
+
+        if (widdle.length === widdleLength - 1) {  // Special case allowing tolerance for the final word
             candidate = words.slice(index).find(word => {
                 let count = 0;
                 const hasForbiddenLetters = word.split('').some( letter => {
@@ -50,40 +38,32 @@ function recurse(widdle, index) {
                         if (count >= tolerance) { return true; }
                     }
                     return false;
-
                 });
                 return !hasForbiddenLetters;
             })
-            //end special case
         } else {
             candidate = findNextWord(index);
         };
+
         if (candidate === undefined) {
-            // remove previous entry and find another one, starting at the next index
             idx = widdle[widdle.length-1][1]+1;
             widdle.pop();
             usedLetters.splice(usedLetters.length-5, 5);
 
             if (widdle.length === 0) {
-                counter++;
+                // This is intended to restart the widdle search using a new starting word, but in reality it's too much recursion :(
                 addToWiddle(words[counter], counter);
             }
         } else {
             idx = words.indexOf(candidate);
             addToWiddle(candidate, idx);
         }
-        if (counter < 10 ){
-            recurse(widdle, idx);
-        } else {
-            console.log('Limit reached');
-        }
+        recurse(widdle, idx);
     }
-
 }
 
-addToWiddle(words[0],0);
-recurse(widdle, 0);
+addToWiddle(words[startIndex],startIndex);
+recurse(widdle, startIndex);
 
 console.log(widdle);
-
 return widdle;
