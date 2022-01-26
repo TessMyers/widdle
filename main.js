@@ -19,7 +19,7 @@ Search for a word with no repeated letters. If cannot find, delete previous leve
 const widdle = [];
 const usedLetters = [];
 let counter = 0;
-const tolerance = 1;
+const tolerance = 2;
 
 function addToWiddle(word, idx) {
     widdle.push([word, idx])
