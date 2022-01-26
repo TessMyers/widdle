@@ -1,0 +1,10 @@
+{
+  "name": "Widdle",
+  "version": "1.0.0",
+  "description": "dont worry guys I solved wordle and now you don't have to play anymore",
+  "main": "index.js",
+  "repository": "https://github.com/TessMyers/widdle.git",
+  "author": "Tess Myers",
+  "license": "MIT",
+  "private": false
+}
