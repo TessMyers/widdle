@@ -23,7 +23,6 @@ function findNextWord(index){
 }
 
 function recurse(widdle, index) {
-
     if (widdle.length === widdleLength ) {
         return;
     } else {
